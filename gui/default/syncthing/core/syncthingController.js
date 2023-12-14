@@ -3566,6 +3566,17 @@ angular.module('syncthing.core')
             return '';
         };
 
+        $scope.setCurrentDevice = function(device) {
+            $scope.currentDevice = device
+        }
+
+        $scope.editDeviceFolder = function (device) {
+            $scope.setCurrentDevice(device)
+            device.addresses = $scope.deviceAddr(device)
+            console.log(device)
+            // $scope.editDeviceExisting(device)
+        }
+
         $scope.getXattrDefault = function () {
             var xattrFilter = $scope.currentFolder.xattrFilter;
             if (xattrFilter == null || xattrFilter == {}) {
