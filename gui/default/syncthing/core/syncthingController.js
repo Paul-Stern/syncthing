@@ -1899,7 +1899,7 @@ angular.module('syncthing.core')
         }
 
         $scope.editDeviceExisting = function (deviceCfg) {
-            // console.log(deviceCfg, $scope.currentDevice);
+            console.log(deviceCfg, $scope.currentDevice);
             $scope.currentDevice = $.extend({}, deviceCfg);
             $scope.currentDevice._editing = "existing";
             $scope.willBeReintroducedBy = undefined;
@@ -3580,13 +3580,14 @@ angular.module('syncthing.core')
         $scope.editDeviceFolder = function (device) {
             $scope.setCurrentDevice(device)
             $scope.setDeviceAdresses()
-            $scope.currentDevice.name = $scope.deviceName($scope.currentDevice)
+            $scope.currentDevice.name = $scope.deviceName($scope.devices[$scope.currentDevice.deviceID])
             // console.log(
             //     device,
-            //     $scope.currentDevice
+            //     $scope.currentDevice,
+            //     $scope,
             // )
-            $scope.editDeviceExisting(device)
-            console.log(device)
+            $scope.editDeviceExisting($scope.currentDevice)
+            // console.log(device)
         }
 
         $scope.getXattrDefault = function () {
