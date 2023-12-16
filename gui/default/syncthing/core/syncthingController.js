@@ -3573,7 +3573,7 @@ angular.module('syncthing.core')
 
         $scope.setDeviceAdresses = function() {
             if ($scope.currentDevice.addresses === undefined) {
-                $scope.currentDevice.addresses = [];
+                $scope.currentDevice.addresses = $scope.discoveryCache[$scope.currentDevice.deviceID].addresses;
             }
         }
 
